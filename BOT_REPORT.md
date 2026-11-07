@@ -91,9 +91,9 @@ The untouched repository template (always call/check) was preserved and evaluate
 |---|---:|---:|---:|
 | heads-up tight | −94.7 ± 24.1 | +43.0 ± 8.7 | 2,000 |
 | heads-up equity | −253.7 ± 27.9 | +163.4 ± 24.4 | 2,000 |
-| table with tight and equity | −321.5 ± 32.7 | Evaluation still running | 3,000 planned |
+| table with tight and equity | −321.5 ± 32.7 | +82.6 ± 19.0 | 3,000 |
 
-The completed longer heads-up matches had 0 faults. Their slowest PocketAces callback was 0.23 seconds. The baseline also had 0 faults. The table row will be replaced by its measured result when complete.
+All longer matches, including the three-player table, had 0 faults. The slowest PocketAces callback was 0.23 seconds heads-up and 0.14 seconds at the table. The baseline also had 0 faults. The exact requested command completed successfully.
 
 These results support improvement over the always-call template on these opponents. They do not establish optimal strategy or predict the tournament winner. The bot uses heuristic ranges and a limited number of simulations, not a solved strategy; small samples and approximate range assumptions affect marginal decisions. Multiway joint ranges and side-pot valuation are approximate. The statistical intervals describe deck variation for these fixed opponent/seed settings and do not cover unknown opposing strategies. The deadline guard may deliberately check/fold in an unusually expensive state.
 

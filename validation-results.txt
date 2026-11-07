@@ -31,10 +31,11 @@ shove                       +161.6 ± 78.1      ahead    1000      0    0.04s
 tight                        +38.5 ± 12.8      ahead    1000      0    0.13s
 equity                      +179.8 ± 35.0      ahead    1000      0    0.12s
 
-Requested 1000-deal evaluations (table still running)
+Requested 1000-deal evaluations, including table
 opponents                       your bb/100  verdict   hands faults  slowest
 tight                        +43.0 ± 8.7       ahead    2000      0    0.06s
 equity                      +163.4 ± 24.4      ahead    2000      0    0.23s
+table of 3                   +82.6 ± 19.0      ahead    3000      0    0.14s
 
 Untouched template baseline; same 1000-deal settings
 opponents                       your bb/100  verdict   hands faults  slowest
@@ -47,3 +48,5 @@ Additional scenario validation
 faults: 0 internal fallbacks: 0 slowest decision seconds: 0.07517
 post-play pickle vet: True globals: ['card_utils.Card', 'model.Model', 'random.Random'] findings: []
 
+Published ZIP download verified byte-for-byte, including all three submission files.
+ZIP SHA256: dcb6e5946cd70fe2077500908e8e8b887afad560495511d0d095ba42802b4e95
