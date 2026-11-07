@@ -30,9 +30,10 @@ TypeScript or compiled project extension is included. No dependency was added.
 The existing organiser Pydantic requirement retains its normal native core.
 There are no external weights or lookup files: tables are created in `__init__`.
 
-**Python 3.11+ is the project requirement**, matching the minimum required
-by the official `hypothesis==6.170.15` pin. `.python-version` selects 3.11.
-Dependency pins were preserved. Development and tests ran on Python 3.12.
+The organisers require **Python 3.10+ for the submitted bot**. Their pinned
+`hypothesis==6.170.15` requires **Python 3.11+ for the full test suite**.
+`.python-version` selects 3.11 for local development. Dependency pins were
+preserved. Development and tests ran on Python 3.12.
 
 ## Contract audit
 
@@ -143,8 +144,9 @@ failure is distinct from the zero faults in final matches.
   reference **124.494 µs/hand**, fast evaluator **4.623 µs/hand** (26.93x in
   this measurement). The regression suite separately checks 3,600 random
   5/6/7-card hands plus explicit wheel, flush, quads, full-house and pair cases.
-- Actual execution used Python 3.12, satisfying the project's Python 3.11+
-  requirement. Dependency metadata was checked, including Hypothesis.
+- Actual execution used Python 3.12, satisfying both the organiser's 3.10+
+  runtime requirement and the test suite's 3.11+ dependency minimum.
+  Dependency metadata was checked, including Hypothesis.
 - The final staged files were reviewed, with no credential-pattern matches,
   caches, virtual environments or generated match logs included. The full
   original commit history is retained for provenance.
@@ -235,7 +237,8 @@ The bot uses heuristic ranges, finite sampling and approximate multiway
 side-pot valuation. The new adaptation was validated only on the stated
 opponent policies and independent deck seeds; it does not establish
 improvement against unknown tournament bots. No tournament win is promised.
-The project requires Python 3.11+, matching the unchanged official
-Hypothesis pin, with execution tested here on 3.12.
+The submitted bot follows the organiser's Python 3.10+ requirement. Local
+development uses Python 3.11+ for the unchanged Hypothesis pin; execution
+was tested here on 3.12.
 The event deadline comes from this session because upstream
 does not state one. User submission of the form remains required.

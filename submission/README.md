@@ -1,6 +1,7 @@
 # PocketAces upload files
 
-Project requirement: **Python 3.11+**.
+Organiser's bot requirement: **Python 3.10+**. The local development/test
+environment uses Python 3.11+ for the official test dependency.
 
 This directory is generated from the repository-root bot by:
 

@@ -13,8 +13,10 @@ and package the bot. No frontend or external training service is required.
 
 ## Setup
 
-**Python 3.11+ is required** for this project (3.12 was tested).
-Run commands from this repository's root:
+The organisers require **Python 3.10+ for the bot**. Use **Python 3.11+ for
+local development and the full test suite**, because their pinned Hypothesis
+dependency requires it. `.python-version` selects 3.11 for that local setup;
+testing here used 3.12. Run commands from this repository's root:
 
 ```sh
 python3.11 -m venv .venv
