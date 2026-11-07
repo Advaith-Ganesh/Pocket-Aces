@@ -16,7 +16,7 @@ and package the bot. No frontend or external training service is required.
 The organisers require **Python 3.10+ for the bot**. Use **Python 3.11+ for
 local development and the full test suite**, because their pinned Hypothesis
 dependency requires it. `.python-version` selects 3.11 for that local setup;
-testing here used 3.12. Run commands from this repository's root:
+final checks covered Python 3.10.22, 3.11.17 and 3.12. Run commands from this repository's root:
 
 ```sh
 python3.11 -m venv .venv
@@ -46,7 +46,8 @@ seats, short stacks, range sampling, ties and package/source consistency.
 A smoke match establishes basic operation; it does not establish strength.
 Evaluation output reports bb/100, 95% intervals, played hands, faults and
 slowest callbacks. Duplicate heads-up deals run once per seat: 1,000 deals
-means 2,000 played hands. See [REPORT.md](REPORT.md) for measured results.
+means 2,000 played hands. See [REPORT.md](REPORT.md) for measured results and
+[final tournament checks](docs/FINAL_CHECKS.md) for actual Python-version verification.
 
 ## Rebuild and submit
 

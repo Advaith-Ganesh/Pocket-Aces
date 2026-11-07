@@ -33,7 +33,9 @@ There are no external weights or lookup files: tables are created in `__init__`.
 The organisers require **Python 3.10+ for the submitted bot**. Their pinned
 `hypothesis==6.170.15` requires **Python 3.11+ for the full test suite**.
 `.python-version` selects 3.11 for local development. Dependency pins were
-preserved. Development and tests ran on Python 3.12.
+preserved. Original development used Python 3.12. Final checks also passed
+on Python 3.10.22 (runtime) and 3.11.17 (full suite); see
+`docs/FINAL_CHECKS.md`.
 
 ## Contract audit
 
@@ -239,6 +241,7 @@ opponent policies and independent deck seeds; it does not establish
 improvement against unknown tournament bots. No tournament win is promised.
 The submitted bot follows the organiser's Python 3.10+ requirement. Local
 development uses Python 3.11+ for the unchanged Hypothesis pin; execution
-was tested here on 3.12.
+was verified on 3.10.22, with full suites passing on 3.11.17 and 3.12
+(see `docs/FINAL_CHECKS.md`).
 The event deadline comes from this session because upstream
 does not state one. User submission of the form remains required.
