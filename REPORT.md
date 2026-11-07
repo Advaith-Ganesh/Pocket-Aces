@@ -30,12 +30,9 @@ TypeScript or compiled project extension is included. No dependency was added.
 The existing organiser Pydantic requirement retains its normal native core.
 There are no external weights or lookup files: tables are created in `__init__`.
 
-Dependency compatibility finding: the official `hypothesis==6.170.15` pin
-requires Python 3.11+, although the official runtime and bot support 3.10+.
-The project README now recommends 3.11+ for development and explains a
-runtime-only `requirements.txt` install for 3.10. Pins were preserved.
-Development and tests ran on Python 3.12; all new Python files also passed
-a Python 3.10 syntax parse. Python 3.10 execution was not separately tested.
+**Python 3.11+ is the project requirement**, matching the minimum required
+by the official `hypothesis==6.170.15` pin. `.python-version` selects 3.11.
+Dependency pins were preserved. Development and tests ran on Python 3.12.
 
 ## Contract audit
 
@@ -146,9 +143,8 @@ failure is distinct from the zero faults in final matches.
   reference **124.494 µs/hand**, fast evaluator **4.623 µs/hand** (26.93x in
   this measurement). The regression suite separately checks 3,600 random
   5/6/7-card hands plus explicit wheel, flush, quads, full-house and pair cases.
-- All new Python sources passed a Python 3.10 syntax parse. Actual execution
-  used Python 3.12. Dependency metadata was checked, exposing the documented
-  Hypothesis development-version constraint.
+- Actual execution used Python 3.12, satisfying the project's Python 3.11+
+  requirement. Dependency metadata was checked, including Hypothesis.
 - The final staged files were reviewed, with no credential-pattern matches,
   caches, virtual environments or generated match logs included. The full
   original commit history is retained for provenance.
@@ -239,7 +235,7 @@ The bot uses heuristic ranges, finite sampling and approximate multiway
 side-pot valuation. The new adaptation was validated only on the stated
 opponent policies and independent deck seeds; it does not establish
 improvement against unknown tournament bots. No tournament win is promised.
-The full development suite requires Python 3.11+ because of the unchanged
-official Hypothesis pin; runtime code supports 3.10+, with execution tested
-here on 3.12. The event deadline comes from this session because upstream
+The project requires Python 3.11+, matching the unchanged official
+Hypothesis pin, with execution tested here on 3.12.
+The event deadline comes from this session because upstream
 does not state one. User submission of the form remains required.

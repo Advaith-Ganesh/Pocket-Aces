@@ -13,12 +13,11 @@ and package the bot. No frontend or external training service is required.
 
 ## Setup
 
-The bot runtime supports **Python 3.10+**. Use **Python 3.11+ for development**
-(3.12 was tested): the official pinned Hypothesis version requires 3.11+.
+**Python 3.11+ is required** for this project (3.12 was tested).
 Run commands from this repository's root:
 
 ```sh
-python3 -m venv .venv
+python3.11 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt
 ```
 
@@ -28,8 +27,6 @@ adds only the pinned pytest and Hypothesis tools. The bot itself uses only
 Python's standard library plus the official interfaces. No compiled
 extension or dependency was added; the organiser's existing Pydantic
 installation includes its normal `pydantic-core` dependency.
-For a Python 3.10 runtime-only installation, install `requirements.txt`;
-run the full development suite with Python 3.11+ and `requirements-dev.txt`.
 
 ## Test and measure
 

@@ -1,5 +1,7 @@
 # PocketAces upload files
 
+Project requirement: **Python 3.11+**.
+
 This directory is generated from the repository-root bot by:
 
 ```sh
