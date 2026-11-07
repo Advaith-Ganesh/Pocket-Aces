@@ -31,6 +31,9 @@ class Model:
         self.opponents = {}
         self.hands_played = 0
         self.fallbacks = 0
+        self.fallback_reasons = {'budget': 0, 'calculation': 0}
+        self.last_error = ''
+        self.exploit_folds = True
         self.max_seconds = 0.0
         self.last_equity = 0.0
         self.last_samples = 0
@@ -57,6 +60,7 @@ class Model:
             if len(self.opponents) >= 128:
                 del self.opponents[next(iter(self.opponents))]
             self.opponents[name] = dict(hands=0, vpip=0, pfr=0, jams=0,
+                                        preflop_responses=0, preflop_folds=0,
                                         responses=0, folds=0, calls=0,
                                         post_actions=0, post_bets=0)
         return self.opponents[name]
@@ -114,6 +118,9 @@ class Model:
                 stats = self._stats(name)
                 flags = self.pf_flags.setdefault(name, [False, False, False])
                 if len(self.board_seen) < 3:
+                    if cost > 0 and self.preflop_raises > 0:
+                        stats['preflop_responses'] += 1
+                        stats['preflop_folds'] += a.kind == 'fold'
                     if a.kind == 'raise' or (a.kind == 'call' and cost > 0):
                         flags[0] = True
                     if a.kind == 'raise':
@@ -160,9 +167,18 @@ class Model:
             # Budget the entire decision to well below the 10-second limit.
             action = self._decide(g, start + .65)
             g.validate_action(action)
-        except (ArithmeticError, ValueError, IndexError, KeyError, TimeoutError):
+        except TimeoutError as error:
             self.fallbacks += 1
+            self.fallback_reasons['budget'] += 1
+            self.last_error = str(error)[:160]
             action = fallback
+            g.validate_action(action)
+        except (ArithmeticError, ValueError, IndexError, KeyError) as error:
+            self.fallbacks += 1
+            self.fallback_reasons['calculation'] += 1
+            self.last_error = str(error)[:160]
+            action = fallback
+            g.validate_action(action)
         self.max_seconds = max(self.max_seconds, time.perf_counter() - start)
         return action
 
@@ -317,6 +333,14 @@ class Model:
                     if position:
                         # Open most buttons, mix limps with the lowest hands.
                         threshold = .84 if depth > 10 else .68
+                        # Use only actual heads-up response opportunities;
+                        # do not transfer multiway fold rates to this rule.
+                        if self.exploit_folds and g.num_players == 2 and depth >= 12:
+                            stats = self._stats(g.teams[opponents[0]])
+                            opportunities = stats['preflop_responses']
+                            fold_rate = (stats['preflop_folds'] + 8 * .55) / (opportunities + 8)
+                            if opportunities >= 24 and fold_rate > .73:
+                                threshold = 1.0
                         if percentile <= threshold:
                             if depth <= 7 and percentile < .46:
                                 return self._raise(g, g.max_raise_to)

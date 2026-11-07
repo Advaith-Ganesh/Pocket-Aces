@@ -1,0 +1,9 @@
+{
+  "team": "PocketAces",
+  "pickle_protocol": 4,
+  "files": {
+    "pocketaces.pkl": "db52b95c1e91ae249b29964fc8fea8080a8650f81e84ac0e8c423ef42a5d3663",
+    "model.py": "d6bee639738e6dca071e3fa55edd46879ec178cbcdd7a5d5f2627bc50860f4ac",
+    "poker_eval.py": "78a59bb3311d769355e18f578d3482ce773a22577035047a978107b57bbd59ec"
+  }
+}

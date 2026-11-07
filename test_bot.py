@@ -89,6 +89,8 @@ def test_free_check_and_fallback(monkeypatch):
     assert action.kind == 'call' and action.player_id == 1
     g.validate_action(action)
     assert m.fallbacks == 1
+    assert m.fallback_reasons == {'budget': 0, 'calculation': 1}
+    assert m.last_error == 'deliberate calculation failure'
 
 
 def test_facing_bet_fallback(monkeypatch):
@@ -113,6 +115,46 @@ def test_exhausted_sampling_budget_uses_legal_fallback(monkeypatch):
     action = m.run([], GameStateView(g))
     g.validate_action(action)
     assert action.kind == 'fold' and m.fallbacks == 1
+    assert m.fallback_reasons == {'budget': 1, 'calculation': 0}
+    assert 'budget exhausted' in m.last_error
+
+
+def test_preflop_fold_statistics_count_responses_to_raises_only():
+    m = Model()
+    m.seed(cards('AS AH'), 0)
+    g = GameState([500, 500], teams=['us', 'rival'])
+    m._consume([], GameStateView(g))
+    events = [PlayerAction.raise_to(0, 45), PlayerAction.fold(1)]
+    for event in events:
+        g.process_action(event)
+    m.end_game(events, GameStateView(g))
+    assert m.opponents['rival']['preflop_responses'] == 1
+    assert m.opponents['rival']['preflop_folds'] == 1
+    # A small blind folding to the blind price is not facing a raise.
+    m.seed(cards('KS KH'), 1)
+    g = GameState([500, 500], teams=['rival', 'us'])
+    event = PlayerAction.fold(0)
+    g.process_action(event)
+    m.end_game([event], GameStateView(g))
+    assert m.opponents['rival']['preflop_responses'] == 1
+    assert m.opponents['rival']['preflop_folds'] == 1
+
+
+@pytest.mark.parametrize('opportunities, folds, expected_raise', [
+    (23, 23, False), (24, 24, True), (60, 30, False),
+])
+def test_wider_open_requires_enough_observed_folds(opportunities, folds, expected_raise):
+    m = Model()
+    m.exploit_folds = True
+    m.seed(cards('7C 2D'), 0)
+    g = GameState([500, 500], teams=['us', 'rival'])
+    stats = m._stats('rival')
+    stats['preflop_responses'] = opportunities
+    stats['preflop_folds'] = folds
+    action = m.run([], GameStateView(g))
+    g.validate_action(action)
+    assert (action.kind == 'raise') == expected_raise
+    assert m.fallbacks == 0
 
 
 def test_every_simulated_hand_has_distinct_known_cards(monkeypatch):

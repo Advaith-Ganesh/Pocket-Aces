@@ -11,3 +11,23 @@ site_out/
 /site-src/
 /tests/site_js/
 /event.json
+
+# Local development, match output and secrets.
+/work/
+/results/
+/checkpoints/
+/logs/
+*.log
+*.py[cod]
+*.so
+*.pyd
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+credentials*.json
+*.pem
+*.key
+*.pkl
+!submission/pocketaces.pkl

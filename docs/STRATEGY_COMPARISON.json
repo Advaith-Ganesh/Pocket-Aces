@@ -1,0 +1,230 @@
+[
+  {
+    "phase": "development",
+    "opponent": "fold",
+    "seeds": [
+      100,
+      101
+    ],
+    "deals_per_seed": 400,
+    "baseline_bb100": 64.71875,
+    "baseline_ci95": 1.8362973483988223,
+    "candidate_bb100": 73.78125,
+    "candidate_ci95": 0.6575261059622669,
+    "paired_delta_bb100": 9.0625,
+    "paired_delta_ci95": 1.745237967051929,
+    "hands_per_version": 1600,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.03782079600000543
+  },
+  {
+    "phase": "development",
+    "opponent": "call",
+    "seeds": [
+      100,
+      101
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 349.4453125,
+    "baseline_ci95": 53.68394666454277,
+    "candidate_bb100": 349.4453125,
+    "candidate_ci95": 53.68394666454277,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.07845803500003967
+  },
+  {
+    "phase": "development",
+    "opponent": "random",
+    "seeds": [
+      100,
+      101
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 96.671875,
+    "baseline_ci95": 50.659227425640864,
+    "candidate_bb100": 96.671875,
+    "candidate_ci95": 50.659227425640864,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.07019712900000741
+  },
+  {
+    "phase": "development",
+    "opponent": "shove",
+    "seeds": [
+      100,
+      101
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 166.5234375,
+    "baseline_ci95": 93.83977919492699,
+    "candidate_bb100": 166.5234375,
+    "candidate_ci95": 93.83977919492699,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.021830653000051825
+  },
+  {
+    "phase": "development",
+    "opponent": "tight",
+    "seeds": [
+      100,
+      101
+    ],
+    "deals_per_seed": 400,
+    "baseline_bb100": 54.41875,
+    "baseline_ci95": 11.498192637506486,
+    "candidate_bb100": 62.796875,
+    "candidate_ci95": 11.259025381695457,
+    "paired_delta_bb100": 8.378124999999999,
+    "paired_delta_ci95": 4.870352001505247,
+    "hands_per_version": 1600,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.09131925299993782
+  },
+  {
+    "phase": "development",
+    "opponent": "equity",
+    "seeds": [
+      100,
+      101
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 155.578125,
+    "baseline_ci95": 41.20059869665873,
+    "candidate_bb100": 155.578125,
+    "candidate_ci95": 41.20059869665873,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.09039264900002308
+  },
+  {
+    "phase": "held-out",
+    "opponent": "fold",
+    "seeds": [
+      200,
+      201
+    ],
+    "deals_per_seed": 400,
+    "baseline_bb100": 65.6875,
+    "baseline_ci95": 1.749666066387336,
+    "candidate_bb100": 74.15625,
+    "candidate_ci95": 0.5484833576909649,
+    "paired_delta_bb100": 8.46875,
+    "paired_delta_ci95": 1.6820251771056807,
+    "hands_per_version": 1600,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.03652646900036416
+  },
+  {
+    "phase": "held-out",
+    "opponent": "call",
+    "seeds": [
+      200,
+      201
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 313.0078125,
+    "baseline_ci95": 52.46988578800115,
+    "candidate_bb100": 313.0078125,
+    "candidate_ci95": 52.46988578800115,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.09431235500005641
+  },
+  {
+    "phase": "held-out",
+    "opponent": "random",
+    "seeds": [
+      200,
+      201
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 112.0625,
+    "baseline_ci95": 52.84534267999689,
+    "candidate_bb100": 112.0625,
+    "candidate_ci95": 52.84534267999689,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.065307859999848
+  },
+  {
+    "phase": "held-out",
+    "opponent": "shove",
+    "seeds": [
+      200,
+      201
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 182.03125,
+    "baseline_ci95": 95.71386330821579,
+    "candidate_bb100": 182.03125,
+    "candidate_ci95": 95.71386330821579,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.020288322999931552
+  },
+  {
+    "phase": "held-out",
+    "opponent": "tight",
+    "seeds": [
+      200,
+      201
+    ],
+    "deals_per_seed": 400,
+    "baseline_bb100": 47.6125,
+    "baseline_ci95": 9.817845868764492,
+    "candidate_bb100": 55.08124999999999,
+    "candidate_ci95": 9.578219220441785,
+    "paired_delta_bb100": 7.46875,
+    "paired_delta_ci95": 5.9433296845262245,
+    "hands_per_version": 1600,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.05954853999992338
+  },
+  {
+    "phase": "held-out",
+    "opponent": "equity",
+    "seeds": [
+      200,
+      201
+    ],
+    "deals_per_seed": 160,
+    "baseline_bb100": 171.6953125,
+    "baseline_ci95": 43.9769118013726,
+    "candidate_bb100": 171.6953125,
+    "candidate_ci95": 43.9769118013726,
+    "paired_delta_bb100": 0.0,
+    "paired_delta_ci95": 0.0,
+    "hands_per_version": 640,
+    "baseline_faults": 0,
+    "candidate_faults": 0,
+    "max_seconds": 0.08157311600007233
+  }
+]
